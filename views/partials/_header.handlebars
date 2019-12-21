@@ -2,9 +2,7 @@
     <div class="container">
         <div class="nav-wrapper">
             <a href="/stories" class="brand-logo center">StoryBooks</a>
-            <a href="#" data-activates="main-menu show-on-large" class="button-collapse">
-                <i class="fa fa-bars"></i>
-            </a>
+            <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="fa fa-bars"></i></a>
 
             {{!-- RIGHT NAV --}}
             <ul class="right hide-on-small-only">
@@ -13,6 +11,26 @@
                 <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                 {{else}}
                 <li><a href="/stories"><i class="fa fa-book"></i> Public Story</a></li>
+                {{/if}}
+            </ul>
+
+            {{!-- SIDE MENU --}}
+            <ul class="sidenav" id="slide-out">
+                <li>
+                    {{#if user}}
+
+                    {{else}}
+                    <a href="/auth/google" class="btn red darken-1"><i class="fa fa-google left"></i>Login With
+                        Google</a>
+                    {{/if}}
+                </li>
+
+                <li><a href="/stories"><i class="fa fa-book"></i> Public Stories</a></li>
+                {{#if user}}
+                <li class="divider"></li>
+                <li><a href="/dashboard"><i class="fa fa-cog"></i> Dashboard</a></li>
+                <li><a href="/stories/my"><i class="fa fa-user"></i> My stories</a></li>
+                <li><a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
                 {{/if}}
             </ul>
         </div>
