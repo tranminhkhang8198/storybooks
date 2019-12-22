@@ -26,7 +26,8 @@ const keys = require('./config/keys');
 // Handlebars Helpers
 const {
     truncate,
-    stripTags
+    stripTags,
+    formatDate
 } = require('./helpers/hbs');
 
 // Mongoose Connect 
@@ -45,8 +46,9 @@ app.use(bodyParser.json());
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
     helpers: {
-        truncate: truncate,
-        stripTags: stripTags
+        truncate,
+        stripTags,
+        formatDate
     },
     defaultLayout: 'main'
 }));
